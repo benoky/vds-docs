@@ -1,0 +1,137 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+
+# Commit
+
+## 메시지 구조
+
+commit 시 아래와 같은 규칙을 따른다.
+
+> type: subject
+
+body
+
+footer
+
+>
+
+subject, body, footer 의 구조로 이루어져 있으며 각 파트마다 공백 라인을 둔다.
+
+### type
+
+| Type      | 설명                                                              |
+| --------- | ----------------------------------------------------------------- |
+| `feat`    | 신규 기능 추가                                                    |
+| `fix`     | 기존 기능 수정                                                    |
+| `style`   | 스타일(css), 코드 포맷 등 변경                                    |
+| `formmat` | 코드 포맷 등 변경                                                 |
+| `test`    | 테스트 코드 추가                                                  |
+| `chore`   | 빌드 관련, package 매니징 관련                                    |
+| `config`  | 설정 수정                                                         |
+| `etc`     | git ingnore 수정 등 프로젝트와 직접적으로 연관없는 문서 수정 관련 |
+| `release` | npm publsih 버전 업데이트                                         |
+
+### body
+
+commit 메시지의 본문을 입력한다.
+
+- 양과 상관없이 최대한 자세히 적는다.
+- 무엇을, 왜 변경했는지에 대해 작성한다.
+
+### footer
+
+commit 메시지의 꼬리말을 작성한다.
+
+- footer는 필수가 아니며 작성 시 이슈 또는 작업 번호를 유형과 함께 기재한다.
+  > `Fixes`: 이슈 수정중
+  > `Resolves`: 이슈 해결 완료
+- 하나의 commit 메시지에 여러 issue 번호를 적어야 할 경우 , 를 사용하여 구분한다.
+
+### commit 예시
+
+> Feat: 회원 가입 기능 추가
+
+이메일 인증 기능, 비밀번호 규칙 추가
+
+Resolves: #010, #011
+
+>
+
+---
+
+# 브렌치
+
+해당 프로젝트에서는 브랜치를 다음과 같이 분기하여 관리한다.
+
+- `main`: 가장 최신의 release 버전이 반영된 브랜치
+- `release/x.y.z`: 각 버전 별 릴리즈 브랜치
+- `feature/*`: 일반적으로 가장 최신 브랜치인 main브랜치에서 분기되며 새로운 기능 또는 기존 기능, 버그 수정 시 분기한다. 만약 각 버전만의 고유 기능의 경우 해당 release브랜치에서 분기한다. 브랜치 네이밍은 `feature/branch-name` 과 같이 작성하며 최대한 의미를 알기 쉽게 작성한다.
+- hotfix
+- `develop`: 개발 서버에 배포되는 버전의 소스를 관리한다. 해당 버전의 개발이 완료되고 테스트가 완료면 `main`브랜치로 merge된다. (1.0.0 버전 배포 시 해당 브랜치는 삭제)
+
+## 기타
+
+## 병렬 브랜치에 동시 머지 전략
+
+- **시나리오 예시**
+  - 현재 최신 버전은 `2.1.1` (`main`)
+  - 여전히 많은 프로젝트가 `1.0.x`를 쓰고 있음
+  - 그런데 `Button`의 focus 이슈가 `1.x`, `2.x` 양쪽 모두에 존재
+
+### Cherry-pick 또는 Dual-branch 적용
+
+| 방법                                       | 설명                                                             | 권장 상황                    |
+| ------------------------------------------ | ---------------------------------------------------------------- | ---------------------------- |
+| 🔁 **Cherry-pick**                         | `release/1.x` 브랜치에서 fix 개발 → `main`으로 cherry-pick       | 변경이 단순하고 충돌 적을 때 |
+| 🌿 **동일 feature 브랜치, 두 브랜치에 PR** | `feature/fix-button-focus` → `release/1.x` + `main` 에 각각 머지 | 영향이 클 때, 충돌 많을 때   |
+| 🔁 **Backport 스크립트 활용**              | `main` 작업 후 자동으로 `release/1.x`에 backport                 | 자동화 도구 쓸 수 있을 때    |
+
+# PR
+
+## PR전략
+
+`feature/*` → `release/x.y.z` 또는 `main`
+
+- 새로운 기능/컴포넌트 추가
+- `release/1.3.0` 같은 릴리즈 준비 브랜치가 있으면 그쪽으로 PR
+- 없다면 최신 릴리즈 대상 브랜치인 `main`으로
+
+🔹 `fix/*` → `release/x.y.z` (해당 버전의 유지보수 브랜치)
+
+- `1.0.x`, `2.1.x` 등 유지보수 브랜치가 있으면 해당 버전대로 PR
+- 이후 `main`으로 cherry-pick or dual PR
+
+🔹 `release/x.y.z` → `main`
+
+- 최종 릴리즈용 PR
+- 이 PR이 머지되면 실제 `npm publish` 가능
+
+## PR타이틀 작성
+
+### type
+
+| Type         | 설명                      | 예시                                        |
+| ------------ | ------------------------- | ------------------------------------------- |
+| `[feat]`     | 새로운 기능 추가          | [feat] Button: add icon support             |
+| `[fix]`      | 코드 수정                 | [fix] Modal: fix focus trap issue           |
+| `[refactor]` | 코드 구조 개선(기능 동일) | [refactor] Select: simplify dropdown render |
+| `[docs]`     | 문서 수정/보안            | [docs] Tooltip: update usage in README      |
+| `[chore]`    | 설정/환경 관련 작업       | [chore] update eslint and build config      |
+
+## PR본문 작성
+
+- 작업 내용 요약
+  - 어떤 컴포넌트를 어떤 목적으로 수정/추가했는지 간결하게 설명
+  - 사용자에게 어떤 기능이 새로 생기거나 개선되는지?
+- 변경 사항 상세
+  - `Button`: icon prop 추가 (`iconPosition` 지원)
+  - `Modal`: keydown 이벤트 핸들링 개선
+  - `Theme`: 기본 색상값 업데이트
+- changelog (changesets 사용 안할 경우 수동 작성)
+  - `@voyage/button@1.2.0` → icon prop 지원 추가
+  - `@voyage/modal@1.0.3` → focus trap bug fix
+- 관련 이슈
+  - Closes #123 형식
