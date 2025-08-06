@@ -1,7 +1,12 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
-  stories: ['../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: [
+    '../src/**/*.stories.@(js|jsx|mjs|ts|tsx|mdx)',
+    '../src/**/*.@(js|jsx|mjs|ts|tsx|mdx)',
+    '../src/*.stories.@(js|jsx|mjs|ts|tsx|mdx)',
+    '../src/*.@(js|jsx|mjs|ts|tsx|mdx)',
+  ],
 
   addons: ['@storybook/addon-essentials'],
 
@@ -15,7 +20,7 @@ const config: StorybookConfig = {
   },
 
   features: {
-    experimentalRSC: true, // React Server Components 지원
+    experimentalRSC: false, // React Server Components 지원
   },
 
   typescript: {
