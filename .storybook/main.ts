@@ -3,7 +3,7 @@ import type { StorybookConfig } from '@storybook/react-vite';
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
 
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials', '@storybook/addon-interactions'],
+  addons: ['@storybook/addon-essentials'],
 
   framework: {
     name: '@storybook/react-vite',
@@ -28,10 +28,10 @@ const config: StorybookConfig = {
   },
 
   viteFinal: async config => {
-    // React 19 관련 설정 추가
+    // 수정: define 값은 문자열 치환이므로 반드시 JSON.stringify 사용
     config.define = {
       ...config.define,
-      __REACT_DEVTOOLS_GLOBAL_HOOK__: '({ isDisabled: true })',
+      __REACT_DEVTOOLS_GLOBAL_HOOK__: JSON.stringify({ isDisabled: true }),
     };
 
     return config;
