@@ -8,8 +8,8 @@ const config: StorybookConfig = {
     '../src/*.@(js|jsx|mjs|ts|tsx|mdx)',
   ],
 
-  addons: ['@storybook/addon-essentials'],
-
+  addons: ['@storybook/addon-essentials', '@storybook/addon-docs'],
+  staticDirs: ['../public'],
   framework: {
     name: '@storybook/react-vite',
     options: {},
@@ -43,6 +43,8 @@ const config: StorybookConfig = {
   },
 
   docs: {
+    docsMode: false,
+    defaultName: 'Docs',
     autodocs: 'tag',
   },
 };
