@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Root -->
+  <url>
+    <loc>https://voyage-ui.vercel.app/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Introduction -->
+  <url>
+    <loc>https://voyage-ui.vercel.app/?path=/docs/welcome--docs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Display Components -->
+  <url>
+    <loc>https://voyage-ui.vercel.app/?path=/docs/display-avatar--docs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyage-ui.vercel.app/?path=/docs/display-badge--docs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyage-ui.vercel.app/?path=/docs/display-datatable--docs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Form Components -->
+  <url>
+    <loc>https://voyage-ui.vercel.app/?path=/docs/form-button--docs</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyage-ui.vercel.app/?path=/docs/form-checkbox--docs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyage-ui.vercel.app/?path=/docs/form-editor--docs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyage-ui.vercel.app/?path=/docs/form-input--docs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyage-ui.vercel.app/?path=/docs/form-radio--docs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyage-ui.vercel.app/?path=/docs/form-select--docs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyage-ui.vercel.app/?path=/docs/form-switch--docs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyage-ui.vercel.app/?path=/docs/form-textarea--docs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Layout Components -->
+  <url>
+    <loc>https://voyage-ui.vercel.app/?path=/docs/layout-tabs--docs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Feedback Components -->
+  <url>
+    <loc>https://voyage-ui.vercel.app/?path=/docs/feedback-progress--docs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyage-ui.vercel.app/?path=/docs/feedback-skeleton--docs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Overlay Components -->
+  <url>
+    <loc>https://voyage-ui.vercel.app/?path=/docs/overlay-contextmenu--docs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyage-ui.vercel.app/?path=/docs/overlay-modal--docs</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyage-ui.vercel.app/?path=/docs/overlay-popup--docs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voyage-ui.vercel.app/?path=/docs/overlay-tooltip--docs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Panel Components -->
+  <url>
+    <loc>https://voyage-ui.vercel.app/?path=/docs/panel-card--docs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
