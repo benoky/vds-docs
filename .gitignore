@@ -24,7 +24,12 @@ dist-ssr
 *.sw?
 
 *storybook.log
-
 .cursorrules
-
 *.tgz
+
+# storybook
+storybook-static
+
+# yalc
+yalc.lock
+.yalc

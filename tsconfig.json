@@ -8,7 +8,7 @@
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "moduleResolution": "Bundler",
+    "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
