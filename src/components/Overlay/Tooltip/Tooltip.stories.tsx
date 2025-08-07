@@ -119,7 +119,7 @@ export const Sizes: Story = {
     <div className='space-y-4 w-80'>
       <div className='flex justify-center'>
         <Tooltip content='작은 크기 툴팁' size='sm'>
-          <Button variant='primary' size='sm'>
+          <Button variant='default' size='sm'>
             작은 크기
           </Button>
         </Tooltip>
@@ -127,13 +127,13 @@ export const Sizes: Story = {
 
       <div className='flex justify-center'>
         <Tooltip content='기본 크기 툴팁' size='default'>
-          <Button variant='primary'>기본 크기</Button>
+          <Button variant='default'>기본 크기</Button>
         </Tooltip>
       </div>
 
       <div className='flex justify-center'>
         <Tooltip content='큰 크기 툴팁' size='lg'>
-          <Button variant='primary' size='lg'>
+          <Button variant='default' size='lg'>
             큰 크기
           </Button>
         </Tooltip>
@@ -148,19 +148,19 @@ export const Triggers: Story = {
     <div className='space-y-4 w-80'>
       <div className='flex justify-center'>
         <Tooltip content='호버로 표시' trigger='hover'>
-          <Button variant='primary'>호버</Button>
+          <Button variant='default'>호버</Button>
         </Tooltip>
       </div>
 
       <div className='flex justify-center'>
         <Tooltip content='클릭으로 표시' trigger='click'>
-          <Button variant='success'>클릭</Button>
+          <Button variant='default'>클릭</Button>
         </Tooltip>
       </div>
 
       <div className='flex justify-center'>
         <Tooltip content='포커스로 표시' trigger='focus'>
-          <Button variant='secondary'>포커스</Button>
+          <Button variant='default'>포커스</Button>
         </Tooltip>
       </div>
     </div>
@@ -173,13 +173,13 @@ export const WithArrow: Story = {
     <div className='space-y-4 w-80'>
       <div className='flex justify-center'>
         <Tooltip content='화살표가 있는 툴팁' showArrow>
-          <Button variant='primary'>화살표 있음</Button>
+          <Button variant='default'>화살표 있음</Button>
         </Tooltip>
       </div>
 
       <div className='flex justify-center'>
         <Tooltip content='화살표가 없는 툴팁' showArrow={false}>
-          <Button variant='success'>화살표 없음</Button>
+          <Button variant='outline'>화살표 없음</Button>
         </Tooltip>
       </div>
     </div>
@@ -200,7 +200,7 @@ export const ComplexContent: Story = {
             </div>
           }
         >
-          <Button variant='primary'>복잡한 콘텐츠</Button>
+          <Button variant='default'>복잡한 콘텐츠</Button>
         </Tooltip>
       </div>
 
@@ -215,7 +215,7 @@ export const ComplexContent: Story = {
             </div>
           }
         >
-          <Button variant='success'>통계 정보</Button>
+          <Button variant='outline'>통계 정보</Button>
         </Tooltip>
       </div>
     </div>
@@ -224,14 +224,14 @@ export const ComplexContent: Story = {
 
 export const Interactive: Story = {
   name: '상호작용 예제',
-  render: () => {
+  render: function Interactive() {
     const [open, setOpen] = useState(false);
 
     return (
       <div className='space-y-4 w-80'>
         <div className='flex justify-center'>
           <Tooltip content='제어된 툴팁' open={open} onOpenChange={setOpen}>
-            <Button variant='primary' onClick={() => setOpen(!open)}>
+            <Button variant='default' onClick={() => setOpen(!open)}>
               {open ? '툴팁 닫기' : '툴팁 열기'}
             </Button>
           </Tooltip>
@@ -249,19 +249,19 @@ export const DelayExample: Story = {
     <div className='space-y-4 w-80'>
       <div className='flex justify-center'>
         <Tooltip content='즉시 표시' delayDuration={0}>
-          <Button variant='primary'>즉시</Button>
+          <Button variant='default'>즉시</Button>
         </Tooltip>
       </div>
 
       <div className='flex justify-center'>
         <Tooltip content='1초 후 표시' delayDuration={1000}>
-          <Button variant='success'>1초 지연</Button>
+          <Button variant='default'>1초 지연</Button>
         </Tooltip>
       </div>
 
       <div className='flex justify-center'>
         <Tooltip content='2초 후 표시' delayDuration={2000}>
-          <Button variant='secondary'>2초 지연</Button>
+          <Button variant='outline'>2초 지연</Button>
         </Tooltip>
       </div>
     </div>
@@ -302,7 +302,7 @@ export const FormElements: Story = {
 
       <div>
         <Tooltip content='이 버튼을 클릭하면 폼이 제출됩니다' position='top'>
-          <Button variant='primary' className='w-full'>
+          <Button variant='default' className='w-full'>
             제출
           </Button>
         </Tooltip>
@@ -352,94 +352,4 @@ export const IconTooltips: Story = {
       </div>
     </div>
   ),
-};
-
-export const ComplexExample: Story = {
-  name: '복합 예제',
-  render: () => {
-    const [selectedItem, setSelectedItem] = useState<string | null>(null);
-
-    const items = [
-      { id: 'item1', name: '프로젝트 A', status: 'active', description: '진행 중인 프로젝트' },
-      { id: 'item2', name: '프로젝트 B', status: 'completed', description: '완료된 프로젝트' },
-      { id: 'item3', name: '프로젝트 C', status: 'pending', description: '대기 중인 프로젝트' },
-    ];
-
-    const getStatusColor = (status: string) => {
-      switch (status) {
-        case 'active':
-          return 'text-green-700';
-        case 'completed':
-          return 'text-blue-700';
-        case 'pending':
-          return 'text-yellow-700';
-        default:
-          return 'text-gray-700';
-      }
-    };
-
-    const getStatusText = (status: string) => {
-      switch (status) {
-        case 'active':
-          return '진행 중';
-        case 'completed':
-          return '완료';
-        case 'pending':
-          return '대기 중';
-        default:
-          return '알 수 없음';
-      }
-    };
-
-    return (
-      <div className='w-80'>
-        <h3 className='text-lg font-semibold mb-4 text-gray-900'>프로젝트 목록</h3>
-
-        <div className='space-y-3'>
-          {items.map(item => (
-            <div key={item.id} className='border rounded-lg p-3'>
-              <div className='flex justify-between items-center'>
-                <div className='flex items-center space-x-2'>
-                  <span className='font-medium text-gray-900'>{item.name}</span>
-                  <Tooltip
-                    content={
-                      <div className='text-sm text-gray-900'>
-                        <div className='font-semibold'>{item.name}</div>
-                        <div>{item.description}</div>
-                        <div className='text-xs text-gray-600 mt-1'>상태: {getStatusText(item.status)}</div>
-                      </div>
-                    }
-                    position='right'
-                  >
-                    <span className='text-blue-600 cursor-help'>ⓘ</span>
-                  </Tooltip>
-                </div>
-
-                <div className='flex items-center space-x-2'>
-                  <span className={`text-sm ${getStatusColor(item.status)}`}>{getStatusText(item.status)}</span>
-
-                  <Tooltip content='편집'>
-                    <button className='p-1 text-gray-700 hover:text-blue-600'>✏️</button>
-                  </Tooltip>
-
-                  <Tooltip content='삭제' variant='error'>
-                    <button className='p-1 text-gray-700 hover:text-red-600'>🗑️</button>
-                  </Tooltip>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className='mt-4 p-3 bg-gray-50 rounded-lg text-sm'>
-          <div className='flex justify-between items-center'>
-            <span className='text-gray-900'>선택된 항목:</span>
-            <span className='font-medium text-gray-900'>
-              {selectedItem ? items.find(item => item.id === selectedItem)?.name : '없음'}
-            </span>
-          </div>
-        </div>
-      </div>
-    );
-  },
 };
