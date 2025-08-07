@@ -187,29 +187,32 @@ export const Disabled: Story = {
   },
 };
 
-const InteractiveExample = () => {
-  const [selectedValue, setSelectedValue] = useState('');
+export const Interactive: Story = {
+  name: '상호작용 예제',
+  render: function InteractiveExample() {
+    const [selectedValue, setSelectedValue] = useState('');
 
-  const handleValueChange = (value: string) => {
-    setSelectedValue(value);
-    console.log('선택된 값:', value);
-  };
+    const handleValueChange = (value: string) => {
+      setSelectedValue(value);
+      console.log('선택된 값:', value);
+    };
 
-  return (
-    <div className='w-80'>
-      <Radio
-        label='선택하세요'
-        options={defaultOptions}
-        value={selectedValue}
-        onValueChange={handleValueChange}
-        helperText='원하는 옵션을 선택해주세요'
-      />
+    return (
+      <div className='w-80'>
+        <Radio
+          label='선택하세요'
+          options={defaultOptions}
+          value={selectedValue}
+          onValueChange={handleValueChange}
+          helperText='원하는 옵션을 선택해주세요'
+        />
 
-      <div className='mt-4 p-3 bg-gray-50 rounded-lg text-sm'>
-        <p>
-          <strong>선택된 값:</strong> {selectedValue || '(없음)'}
-        </p>
+        <div className='mt-4 p-3 bg-gray-50 rounded-lg text-sm'>
+          <p>
+            <strong>선택된 값:</strong> {selectedValue || '(없음)'}
+          </p>
+        </div>
       </div>
-    </div>
-  );
+    );
+  },
 };
