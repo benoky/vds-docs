@@ -140,3 +140,32 @@ export const Disabled: Story = {
     </div>
   ),
 };
+
+export const Interactive: Story = {
+  name: '상호작용 예제',
+  render: function InteractiveExample() {
+    const [isChecked, setIsChecked] = useState(false);
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setIsChecked(e.target.checked);
+      console.log('체크박스 상태:', e.target.checked);
+    };
+
+    return (
+      <div className='w-80'>
+        <Checkbox
+          label='이용약관에 동의합니다'
+          checked={isChecked}
+          onChange={handleChange}
+          helperText='서비스 이용을 위해 필수 동의 항목입니다'
+        />
+
+        <div className='mt-4 p-3 bg-gray-50 rounded-lg text-sm'>
+          <p>
+            <strong>체크 상태:</strong> {isChecked ? '체크됨' : '체크 안됨'}
+          </p>
+        </div>
+      </div>
+    );
+  },
+};
