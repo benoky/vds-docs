@@ -54,6 +54,12 @@ const reactConfig = {
 export default [
   // Configure files and directories to ignore
   { ignores: ['dist'] },
+  {
+    env: {
+      browser: true,
+      node: true,
+    },
+  },
   // Disable all ESLint rules that conflict with Prettier (apply first)
   prettierEslint,
   // Apply React configuration
